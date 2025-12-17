@@ -31,14 +31,16 @@ public class Dialog extends JDialog{
     public static void showResults(String results) {
     	Dialog dialog=getDialog();
     	dialog.showResult(results);
+    	dialog.setModal(false);
     	dialog.setVisible(true);
+    	dialog.setModal(true);
     }
     
     private Dialog() {
         setTitle("Choosing a career in GameDev");
         setSize(500, 400);
         setModal(true);
-        setDefaultCloseOperation(HIDE_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
 
 
@@ -98,8 +100,7 @@ public class Dialog extends JDialog{
         resultLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         optionsPanel.add(resultLabel);
         
-        submitButton.setEnabled(false);
-        submitButton.setVisible(false);
+        submitButton.setText("Awesome!");
         
         optionsPanel.revalidate();
         optionsPanel.repaint();

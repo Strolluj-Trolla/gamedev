@@ -148,7 +148,7 @@ end
 
 rule "Really?"
     when
-    	Answer(symbol==QuestionSymbols.EXCITABLE, choice=="YES")
+    	Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
     then
     	QuestionSymbols symbol=QuestionSymbols.SURELYEXCITABLE;
     	String text="Really?";
