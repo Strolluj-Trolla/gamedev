@@ -1,20 +1,41 @@
 package gamedev.put.poznan.pl.rules
- 
-import gamedev.put.poznan.pl.Runner.Message;
+
+import java.util.List;
+import gamedev.put.poznan.pl.Dialog;
+
+declare enum QuestionSymbols
+	MONEY,
+	TALENT;
+end
+
+declare Question
+	symbol:	QuestionSymbols
+	text: String
+	options: List<String>
+	defaultOpt: int
+end
+
+declare Answer
+	symbol: QuestionSymbols
+	choice: String
+end
+	
  
 rule "Hello World"
     when
-        m : Message( status == Message.HELLO, myMessage : message )
     then
-        System.out.println( myMessage );
-        m.setMessage( "Goodbye cruel world" );
-        m.setStatus( Message.GOODBYE );
-        update( m );
-end
-
-rule "GoodBye"
-    when
-        Message( status == Message.GOODBYE, myMessage : message )
-    then
-        System.out.println( myMessage );
+    	QuestionSymbols symbol=QuestionSymbols.MONEY;
+    	String text="Do you love money?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
 end
