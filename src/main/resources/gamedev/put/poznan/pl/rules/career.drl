@@ -988,4 +988,608 @@ rule "Can code"
         answer.setSymbol(symbol);
         answer.setChoice(Dialog.showDialog(text, opts, def));
         insert(answer);
+        insert(new Finish());
+end
+
+rule "Game crtitic"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="No")
+		Answer(symbol==QuestionSymbols.BITTER, choice=="Yes")
+	then
+		Dialog.showResults("Game Critic");
+end
+
+rule "Game reviewer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="No")
+		Answer(symbol==QuestionSymbols.BITTER, choice=="No")
+	then
+		Dialog.showResults("Game Reviewer");
+end
+
+rule "Marketer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Nah, but I can fake it")
+	then
+		Dialog.showResults("Marketer");
+end
+
+rule "Quality assurance"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
+		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="No")
+		Answer(symbol==QuestionSymbols.MINDERRORS, choice=="Yes")
+	then
+		Dialog.showResults("Quality Assurance");
+end
+
+rule "Community manager"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
+		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="No")
+		Answer(symbol==QuestionSymbols.MINDERRORS, choice=="No")
+		Answer(symbol==QuestionSymbols.CHOOSEHANGOUTS, choice=="No")
+	then
+		Dialog.showResults("Community Manager");
+end
+
+rule "Guild leader"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
+		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="No")
+		Answer(symbol==QuestionSymbols.MINDERRORS, choice=="No")
+		Answer(symbol==QuestionSymbols.CHOOSEHANGOUTS, choice=="Yes")
+	then
+		Dialog.showResults("Guild Leader");
+end
+
+rule "Voice actor"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
+		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="Yes")
+	then
+		Dialog.showResults("Voice Actor");
+end
+
+rule "Motion capture actor"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
+		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.YOUNGCAUCASIANHOT, choice=="No")
+	then
+		Dialog.showResults("Motion Capture Actor");
+end
+
+rule "Military shooter packaging model"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
+		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.YOUNGCAUCASIANHOT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.MALE, choice=="Yes")
+	then
+		Dialog.showResults("Military Shooter Packaging Model");
+end
+
+rule "Booth babe"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
+		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.YOUNGCAUCASIANHOT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.MALE, choice=="No")
+		Answer(symbol==QuestionSymbols.ARTSANDCRAFTS, choice=="No")
+	then
+		Dialog.showResults("Booth Babe");
+end
+
+rule "Cosplayer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
+		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.YOUNGCAUCASIANHOT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.MALE, choice=="No")
+		Answer(symbol==QuestionSymbols.ARTSANDCRAFTS, choice=="Yes")
+	then
+		Dialog.showResults("Cosplayer");
+end
+
+rule "Office it"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+		Answer(symbol==QuestionSymbols.ALONE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.MUSICAL, choice=="No")
+	then
+		Dialog.showResults("Office IT");
+end
+
+rule "Composer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+		Answer(symbol==QuestionSymbols.ALONE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.MUSICAL, choice=="Yes")
+		Answer(symbol==QuestionSymbols.LIKESHOOTING, choice=="No")
+	then
+		Dialog.showResults("Composer");
+end
+
+rule "Sound designer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+		Answer(symbol==QuestionSymbols.ALONE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.MUSICAL, choice=="Yes")
+		Answer(symbol==QuestionSymbols.LIKESHOOTING, choice=="Yes")
+	then
+		Dialog.showResults("Sound Designer");
+end
+
+rule "Level designer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="No")
+		Answer(symbol==QuestionSymbols.UNFINISHEDTOOLS, choice=="Yes")
+	then
+		Dialog.showResults("Level Designer");
+end
+
+rule "Writer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="No")
+		Answer(symbol==QuestionSymbols.UNFINISHEDTOOLS, choice=="No")
+		Answer(symbol==QuestionSymbols.SPREADSHEET, choice=="No")
+	then
+		Dialog.showResults("Writer");
+end
+
+rule "Lead game designer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="No")
+		Answer(symbol==QuestionSymbols.UNFINISHEDTOOLS, choice=="No")
+		Answer(symbol==QuestionSymbols.SPREADSHEET, choice=="Yes")
+		Answer(symbol==QuestionSymbols.WANTTOBEORDERED, choice=="No")
+	then
+		Dialog.showResults("Lead Game Designer");
+end
+
+rule "Event scripter"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="No")
+		Answer(symbol==QuestionSymbols.UNFINISHEDTOOLS, choice=="No")
+		Answer(symbol==QuestionSymbols.SPREADSHEET, choice=="Yes")
+		Answer(symbol==QuestionSymbols.WANTTOBEORDERED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.OBSESSDETAILS, choice=="No")
+	then
+		Dialog.showResults("Event Scripter");
+end
+
+rule "Game designer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="No")
+		Answer(symbol==QuestionSymbols.UNFINISHEDTOOLS, choice=="No")
+		Answer(symbol==QuestionSymbols.SPREADSHEET, choice=="Yes")
+		Answer(symbol==QuestionSymbols.WANTTOBEORDERED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.OBSESSDETAILS, choice=="Yes")
+		Answer(symbol==QuestionSymbols.GORE, choice=="No")
+	then
+		Dialog.showResults("Game Designer");
+end
+
+rule "Combat designer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="No")
+		Answer(symbol==QuestionSymbols.UNFINISHEDTOOLS, choice=="No")
+		Answer(symbol==QuestionSymbols.SPREADSHEET, choice=="Yes")
+		Answer(symbol==QuestionSymbols.WANTTOBEORDERED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.OBSESSDETAILS, choice=="Yes")
+		Answer(symbol==QuestionSymbols.GORE, choice=="Yes")
+	then
+		Dialog.showResults("Combat Designer");
+end
+
+rule "Art director"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.WORKINGOVERTALKING, choice=="No")
+	then
+		Dialog.showResults("Art Director");
+end
+
+rule "Arnimator"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.WORKINGOVERTALKING, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PROPERARTIST, choice=="No")
+		Answer(symbol==QuestionSymbols.WEEKSONSECONDS, choice=="Yes")
+	then
+		Dialog.showResults("Animator");
+end
+
+rule "3d artist"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.WORKINGOVERTALKING, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PROPERARTIST, choice=="No")
+		Answer(symbol==QuestionSymbols.WEEKSONSECONDS, choice=="No")
+	then
+		Dialog.showResults("3d Artist");
+end
+
+rule "Comic Artist"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.WORKINGOVERTALKING, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PROPERARTIST, choice=="Yes")
+		Answer(symbol==QuestionSymbols.FRENCH, choice=="Yes")
+	then
+		Dialog.showResults("Comic Artist");
+end
+
+rule "Concept Artist"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.WORKINGOVERTALKING, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PROPERARTIST, choice=="Yes")
+		Answer(symbol==QuestionSymbols.FRENCH, choice=="No")
+		Answer(symbol==QuestionSymbols.ASIAN, choice=="Yes")
+	then
+		Dialog.showResults("Concept Artist");
+end
+
+rule "Environmental artist"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.WORKINGOVERTALKING, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PROPERARTIST, choice=="Yes")
+		Answer(symbol==QuestionSymbols.FRENCH, choice=="No")
+		Answer(symbol==QuestionSymbols.ASIAN, choice=="No")
+		Answer(symbol==QuestionSymbols.ASIAN, choice=="No")
+		Answer(symbol==QuestionSymbols.CRAFTCRATES, choice=="Yes")
+	then
+		Dialog.showResults("Environmental Artist");
+end
+
+rule "2d artist"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="Yes")
+		Answer(symbol==QuestionSymbols.WORKINGOVERTALKING, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PROPERARTIST, choice=="Yes")
+		Answer(symbol==QuestionSymbols.FRENCH, choice=="No")
+		Answer(symbol==QuestionSymbols.ASIAN, choice=="No")
+		Answer(symbol==QuestionSymbols.ASIAN, choice=="No")
+		Answer(symbol==QuestionSymbols.CRAFTCRATES, choice=="No")
+	then
+		Dialog.showResults("2d Artist");
+end
+
+rule "Indie developer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		(or Answer(symbol==QuestionSymbols.EXCITABLE, choice=="No")
+			(and Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+				Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="No")))
+		Answer(symbol==QuestionSymbols.GAMESIMPORTANT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.MAKEGAMESBYSELF, choice=="Yes")
+	then
+		Dialog.showResults("Indie Developer");
+end
+
+rule "Blogger"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		(or Answer(symbol==QuestionSymbols.EXCITABLE, choice=="No")
+			(and Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+				Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="No")))
+		Answer(symbol==QuestionSymbols.GAMESIMPORTANT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.MAKEGAMESBYSELF, choice=="No")
+		Answer(symbol==QuestionSymbols.BASICGRAMMAR, choice=="Yes")
+	then
+		Dialog.showResults("Blogger");
+end
+
+rule "Gamer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		(or Answer(symbol==QuestionSymbols.EXCITABLE, choice=="No")
+			(and Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+				Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="No")))
+		Answer(symbol==QuestionSymbols.GAMESIMPORTANT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.MAKEGAMESBYSELF, choice=="No")
+		Answer(symbol==QuestionSymbols.BASICGRAMMAR, choice=="No")
+		(or Answer(symbol==QuestionSymbols.GOODATGAMES, choice=="No")
+			(and Answer(symbol==QuestionSymbols.GOODATGAMES, choice=="Yes")
+				Answer(symbol==QuestionSymbols.ASIAN, choice=="No")))
+	then
+		Dialog.showResults("Gamer");
+end
+
+rule "Starcraft cyberathlete"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		(or Answer(symbol==QuestionSymbols.EXCITABLE, choice=="No")
+			(and Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+				Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="No")))
+		Answer(symbol==QuestionSymbols.GAMESIMPORTANT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.MAKEGAMESBYSELF, choice=="No")
+		Answer(symbol==QuestionSymbols.BASICGRAMMAR, choice=="No")
+		Answer(symbol==QuestionSymbols.GOODATGAMES, choice=="Yes")
+		Answer(symbol==QuestionSymbols.ASIAN, choice=="Yes, Korea")
+	then
+		Dialog.showResults("Starcraft Cyberathlete");
+end
+
+rule "Gold farmer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		(or Answer(symbol==QuestionSymbols.EXCITABLE, choice=="No")
+			(and Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+				Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="No")))
+		Answer(symbol==QuestionSymbols.GAMESIMPORTANT, choice=="Yes")
+		Answer(symbol==QuestionSymbols.MAKEGAMESBYSELF, choice=="No")
+		Answer(symbol==QuestionSymbols.BASICGRAMMAR, choice=="No")
+		Answer(symbol==QuestionSymbols.GOODATGAMES, choice=="Yes")
+		Answer(symbol==QuestionSymbols.ASIAN, choice=="Yes, China")
+	then
+		Dialog.showResults("Gold Farmer");
+end
+
+rule "SGS employee"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+		Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+		(or Answer(symbol==QuestionSymbols.EXCITABLE, choice=="No")
+			(and Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Yes")
+				Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="No")))
+		Answer(symbol==QuestionSymbols.GAMESIMPORTANT, choice=="No")
+	then
+		Dialog.showResults("Social Games Studio Employee");
+end
+
+rule "Creative Director"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PRODUCTIVEWORK, choice=="No")
+		Answer(symbol==QuestionSymbols.FEARRESPONSIBILITY, choice=="No")
+		Answer(symbol==QuestionSymbols.GRANDVISION, choice=="Yes")
+	then
+		Dialog.showResults("Creative Director");
+end
+
+rule "Producer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PRODUCTIVEWORK, choice=="No")
+		Answer(symbol==QuestionSymbols.FEARRESPONSIBILITY, choice=="No")
+		Answer(symbol==QuestionSymbols.GRANDVISION, choice=="No")
+		Answer(symbol==QuestionSymbols.HAVEMONEY, choice=="No")
+	then
+		Dialog.showResults("Producer");
+end
+
+rule "SGS head"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PRODUCTIVEWORK, choice=="No")
+		Answer(symbol==QuestionSymbols.FEARRESPONSIBILITY, choice=="No")
+		Answer(symbol==QuestionSymbols.GRANDVISION, choice=="No")
+		Answer(symbol==QuestionSymbols.HAVEMONEY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.HAVECONSCIENCE, choice=="No")
+	then
+		Dialog.showResults("Social Games Studio Head");
+end
+
+rule "Studio head"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PRODUCTIVEWORK, choice=="No")
+		Answer(symbol==QuestionSymbols.FEARRESPONSIBILITY, choice=="No")
+		Answer(symbol==QuestionSymbols.GRANDVISION, choice=="No")
+		Answer(symbol==QuestionSymbols.HAVEMONEY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.HAVECONSCIENCE, choice=="Yes")
+	then
+		Dialog.showResults("Studio Head");
+end
+
+rule "Consultant"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PRODUCTIVEWORK, choice=="No")
+		Answer(symbol==QuestionSymbols.FEARRESPONSIBILITY, choice=="Yes")
+	then
+		Dialog.showResults("Consultant");
+end
+
+rule "Programmer"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PRODUCTIVEWORK, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CANCODE, choice=="Yes")
+	then
+		Dialog.showResults("Programmer");
+end
+
+rule "Technical lead"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PRODUCTIVEWORK, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CANCODE, choice=="Well... it's been a while")
+	then
+		Dialog.showResults("Technical Lead");
+end
+
+rule "OOL"
+	when
+		Finish()
+		Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.PRODUCTIVEWORK, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CANCODE, choice=="No")
+	then
+		Dialog.showResults("You're shit out of luck");
 end

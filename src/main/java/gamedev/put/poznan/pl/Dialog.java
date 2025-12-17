@@ -91,7 +91,7 @@ public class Dialog extends JDialog{
     }
 
     private void showResult(String result) {
-        questionLabel.setText("You should become a(n):");
+        questionLabel.setText("The right career for you is:");
         optionsPanel.removeAll();
         
         JLabel resultLabel = new JLabel("<html><h2 style='color: blue;'>" +result + "</h2></html>");
