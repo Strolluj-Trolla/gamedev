@@ -35,7 +35,7 @@ public class Dialog extends JDialog{
     }
     
     private Dialog() {
-        setTitle("Wybór œcie¿ki GameDev");
+        setTitle("Choosing a career in GameDev");
         setSize(500, 400);
         setModal(true);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
@@ -44,7 +44,7 @@ public class Dialog extends JDialog{
 
         JPanel topPanel = new JPanel();
         topPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        questionLabel = new JLabel("£adowanie...", SwingConstants.CENTER);
+        questionLabel = new JLabel("Loading questions...", SwingConstants.CENTER);
         questionLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
         topPanel.add(questionLabel);
         add(topPanel, BorderLayout.NORTH);
@@ -91,7 +91,7 @@ public class Dialog extends JDialog{
     }
 
     private void showResult(String result) {
-        questionLabel.setText("WYNIK:");
+        questionLabel.setText("You should become a(n):");
         optionsPanel.removeAll();
         
         JLabel resultLabel = new JLabel("<html><h2 style='color: blue;'>" +result + "</h2></html>");

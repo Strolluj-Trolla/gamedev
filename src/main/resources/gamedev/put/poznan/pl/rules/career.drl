@@ -4,8 +4,44 @@ import java.util.List;
 import gamedev.put.poznan.pl.Dialog;
 
 declare enum QuestionSymbols
-	MONEY,
-	TALENT;
+	LOVEMONEY,
+	TALENT,
+	BITTER,
+	EXCITABLE,
+	SURELYEXCITABLE,
+	UNDERAPPRECIATED,
+	ALONE,
+	RATHERMOVIES,
+	MINDERRORS,
+	CHOOSEHANGOUTS,
+	CELEBRITY,
+	YOUNGCAUCASIANHOT,
+	MALE,
+	ARTSANDCRAFTS,
+	MUSICAL,
+	LIKESHOOTING,
+	VISUALLYORIENTED,
+	UNFINISHEDTOOLS,
+	SPREADSHEET,
+	WANTTOBEORDERED,
+	OBSESSDETAILS,
+	GORE,
+	WORKINGOVERTALKING,
+	PROPERARTIST,
+	WEEKSONSECONDS,
+	FRENCH,
+	ASIAN,
+	CRAFTCRATES,
+	GAMESIMPORTANT,
+	MAKEGAMESBYSELF,
+	BASICGRAMMAR,
+	GOODATGAMES,
+	PRODUCTIVEWORK,
+	FEARRESPONSIBILITY,
+	GRANDVISION,
+	HAVEMONEY,
+	HAVECONSCIENCE,
+	CANCODE;
 end
 
 declare Question
@@ -19,14 +55,928 @@ declare Answer
 	symbol: QuestionSymbols
 	choice: String
 end
-	
+
+declare Finish
+end
  
-rule "Hello World"
+rule "Love money"
     when
     then
-    	QuestionSymbols symbol=QuestionSymbols.MONEY;
+    	QuestionSymbols symbol=QuestionSymbols.LOVEMONEY;
     	String text="Do you love money?";
     	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Exceptional talent"
+    when
+    	Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.TALENT;
+    	String text="Do you have exceptional talent?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Bitter about it"
+    when
+    	Answer(symbol==QuestionSymbols.TALENT, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.BITTER;
+    	String text="Are you bitter about it?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+        insert(new Finish());
+end
+
+rule "Excited for ideas"
+    when
+    	Answer(symbol==QuestionSymbols.TALENT, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.EXCITABLE;
+    	String text="Can you get excited for other peoples' ideas?";
+    	List<String> opts=List.of("Yes", "No", "Nah, but I can fake it");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Faked it"
+    when
+    	Answer(symbol==QuestionSymbols.EXCITABLE, choice=="Nah, but I can fake it")
+    then
+        insert(new Finish());
+end
+
+rule "Really?"
+    when
+    	Answer(symbol==QuestionSymbols.EXCITABLE, choice=="YES")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.SURELYEXCITABLE;
+    	String text="Really?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Underappreciated"
+    when
+    	Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.UNDERAPPRECIATED;
+    	String text="Do you mind being underappreciated?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Like being alone"
+    when
+    	Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.ALONE;
+    	String text="Do you like to be alone?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Rather be in the movies"
+    when
+    	Answer(symbol==QuestionSymbols.ALONE, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.RATHERMOVIES;
+    	String text="Would you rather be in the movies?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Mind errors"
+    when
+    	Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.MINDERRORS;
+    	String text="Did you mind the errors in these questions?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Minded the errors"
+    when
+    	Answer(symbol==QuestionSymbols.MINDERRORS, choice=="Yes")
+    then
+        insert(new Finish());
+end
+
+rule "Choose who to hang out with"
+    when
+    	Answer(symbol==QuestionSymbols.MINDERRORS, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.CHOOSEHANGOUTS;
+    	String text="Do you want to choose who to hang out with?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+        insert(new Finish());
+end
+
+rule "Movie/TV celebrity"
+    when
+    	Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.CELEBRITY;
+    	String text="You a TV or movie celebrity?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "You a celebrity"
+    when
+    	Answer(symbol==QuestionSymbols.CELEBRITY, choice=="Yes")
+    then
+        insert(new Finish());
+end
+
+rule "Young, caucasian and hot"
+    when
+    	Answer(symbol==QuestionSymbols.CELEBRITY, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.YOUNGCAUCASIANHOT;
+    	String text="Are you young, caucasian and hot?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Not young/caucasian/hot"
+    when
+    	Answer(symbol==QuestionSymbols.YOUNGCAUCASIANHOT, choice=="No")
+    then
+        insert(new Finish());
+end
+
+rule "Male?"
+    when
+    	Answer(symbol==QuestionSymbols.YOUNGCAUCASIANHOT, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.MALE;
+    	String text="Are you male?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Male"
+    when
+    	Answer(symbol==QuestionSymbols.MALE, choice=="Yes")
+    then
+        insert(new Finish());
+end
+
+rule "Arts and crafts"
+    when
+    	Answer(symbol==QuestionSymbols.MALE, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.ARTSANDCRAFTS;
+    	String text="Do you like arts and crafts?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+        insert(new Finish());
+end
+
+rule "Musical?"
+    when
+    	Answer(symbol==QuestionSymbols.ALONE, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.MUSICAL;
+    	String text="Are you musical?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Not musical"
+    when
+    	Answer(symbol==QuestionSymbols.MUSICAL, choice=="No")
+    then
+        insert(new Finish());
+end
+
+rule "Like shooting"
+    when
+    	Answer(symbol==QuestionSymbols.MUSICAL, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.LIKESHOOTING;
+    	String text="Do you like to shoot or blow things up?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+        insert(new Finish());
+end
+
+rule "Visually oriented"
+    when
+    	Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.VISUALLYORIENTED;
+    	String text="Are you visually oriented?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Unfinished tools"
+    when
+    	Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.UNFINISHEDTOOLS;
+    	String text="Do you like to work with unifinished tools?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Likes unfinished"
+    when
+    	Answer(symbol==QuestionSymbols.UNFINISHEDTOOLS, choice=="Yes")
+    then
+        insert(new Finish());
+end
+
+rule "Speak spreadsheet"
+    when
+    	Answer(symbol==QuestionSymbols.UNFINISHEDTOOLS, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.SPREADSHEET;
+    	String text="Do you speak spreadsheet?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Doesn't speak spredsheet"
+    when
+    	Answer(symbol==QuestionSymbols.SPREADSHEET, choice=="No")
+    then
+        insert(new Finish());
+end
+
+rule "Want to be told"
+    when
+    	Answer(symbol==QuestionSymbols.SPREADSHEET, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.WANTTOBEORDERED;
+    	String text="Do you want to be told what to do?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Doesnt want to be told"
+    when
+    	Answer(symbol==QuestionSymbols.WANTTOBEORDERED, choice=="No")
+    then
+        insert(new Finish());
+end
+
+rule "Obsess over details"
+    when
+    	Answer(symbol==QuestionSymbols.WANTTOBEORDERED, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.OBSESSDETAILS;
+    	String text="Do you obsess excessively over even the tiniest details?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Doesn't obsess"
+    when
+    	Answer(symbol==QuestionSymbols.OBSESSDETAILS, choice=="No")
+    then
+        insert(new Finish());
+end
+
+rule "Gore and blood"
+    when
+    	Answer(symbol==QuestionSymbols.OBSESSDETAILS, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.GORE;
+    	String text="Do you have a fixation on gore and blood?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+        insert(new Finish());
+end
+
+rule "Working over talking"
+    when
+    	Answer(symbol==QuestionSymbols.VISUALLYORIENTED, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.WORKINGOVERTALKING;
+    	String text="Do you prefer working over talking?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Likes talking"
+    when
+    	Answer(symbol==QuestionSymbols.WORKINGOVERTALKING, choice=="No")
+    then
+        insert(new Finish());
+end
+
+rule "'Proper' artist"
+    when
+    	Answer(symbol==QuestionSymbols.WORKINGOVERTALKING, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.PROPERARTIST;
+    	String text="Would you rather be a 'proper' artist?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Spend weeks on seconds"
+    when
+    	Answer(symbol==QuestionSymbols.PROPERARTIST, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.WEEKSONSECONDS;
+    	String text="Want to spend two weeks on two seconds?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+        insert(new Finish());
+end
+
+rule "French?"
+    when
+    	Answer(symbol==QuestionSymbols.PROPERARTIST, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.FRENCH;
+    	String text="Are you French?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "French"
+    when
+    	Answer(symbol==QuestionSymbols.FRENCH, choice=="Yes")
+    then
+        insert(new Finish());
+end
+
+rule "Asian?"
+    when
+    	Answer(symbol==QuestionSymbols.FRENCH, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.ASIAN;
+    	String text="Asian?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Asian"
+    when
+    	Answer(symbol==QuestionSymbols.ASIAN, choice=="Yes")
+    	Answer(symbol==QuestionSymbols.FRENCH)
+    then
+        insert(new Finish());
+end
+
+rule "Crafting crates"
+    when
+    	Answer(symbol==QuestionSymbols.ASIAN, choice=="No")
+    	Answer(symbol==QuestionSymbols.FRENCH)
+    then
+    	QuestionSymbols symbol=QuestionSymbols.CRAFTCRATES;
+    	String text="Do you enjoy crafting crates?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+        insert(new Finish());
+end
+
+rule "Games important?"
+    when
+    	(or Answer(symbol==QuestionSymbols.EXCITABLE, choice=="No")
+    		Answer(symbol==QuestionSymbols.SURELYEXCITABLE, choice=="No"))
+    then
+    	QuestionSymbols symbol=QuestionSymbols.GAMESIMPORTANT;
+    	String text="Do you think games are important?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Not important"
+    when
+    	Answer(symbol==QuestionSymbols.GAMESIMPORTANT, choice=="No")
+    then
+        insert(new Finish());
+end
+
+rule "Make games on your own?"
+    when
+    	Answer(symbol==QuestionSymbols.GAMESIMPORTANT, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.MAKEGAMESBYSELF;
+    	String text="Can you make games on your own?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Yes, make"
+    when
+    	Answer(symbol==QuestionSymbols.MAKEGAMESBYSELF, choice=="Yes")
+    then
+        insert(new Finish());
+end
+
+rule "Basic grammar?"
+    when
+    	Answer(symbol==QuestionSymbols.MAKEGAMESBYSELF, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.BASICGRAMMAR;
+    	String text="Do you know basic grammar?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Basic grammar"
+    when
+    	Answer(symbol==QuestionSymbols.BASICGRAMMAR, choice=="Yes")
+    then
+        insert(new Finish());
+end
+
+rule "Good at games"
+    when
+    	Answer(symbol==QuestionSymbols.BASICGRAMMAR, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.GOODATGAMES;
+    	String text="Are you at least good at playing games?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Not good"
+    when
+    	Answer(symbol==QuestionSymbols.GOODATGAMES, choice=="No")
+    then
+        insert(new Finish());
+end
+
+rule "Asian gamer"
+    when
+    	Answer(symbol==QuestionSymbols.GOODATGAMES, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.ASIAN;
+    	String text="Are you from Asia?";
+    	List<String> opts=List.of("Yes, Korea", "Yes, China", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+        insert(new Finish());
+end
+
+rule "Productive work"
+    when
+    	Answer(symbol==QuestionSymbols.LOVEMONEY, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.PRODUCTIVEWORK;
+    	String text="Do you like doing productive work?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Responsibility"
+    when
+    	Answer(symbol==QuestionSymbols.PRODUCTIVEWORK, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.FEARRESPONSIBILITY;
+    	String text="Are you afraid of responsibility?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Responsibility scary"
+    when
+    	Answer(symbol==QuestionSymbols.FEARRESPONSIBILITY, choice=="Yes")
+    then
+        insert(new Finish());
+end
+
+rule "Grand vision"
+    when
+    	Answer(symbol==QuestionSymbols.FEARRESPONSIBILITY, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.GRANDVISION;
+    	String text="Do you have a 'grand vision'?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "Has vision"
+    when
+    	Answer(symbol==QuestionSymbols.GRANDVISION, choice=="Yes")
+    then
+        insert(new Finish());
+end
+
+rule "Any money?"
+    when
+    	Answer(symbol==QuestionSymbols.GRANDVISION, choice=="No")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.HAVEMONEY;
+    	String text="Do you have any money?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+end
+
+rule "No money"
+    when
+    	Answer(symbol==QuestionSymbols.HAVEMONEY, choice=="No")
+    then
+        insert(new Finish());
+end
+
+rule "Have a conscience?"
+    when
+    	Answer(symbol==QuestionSymbols.HAVEMONEY, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.HAVECONSCIENCE;
+    	String text="Do you have a conscience?";
+    	List<String> opts=List.of("Yes", "No");
+    	int def=0;
+        Question money=new Question();
+        money.setSymbol(symbol);
+        money.setText(text);
+        money.setOptions(opts);
+        money.setDefaultOpt(0);
+        insert(money);
+        Answer answer=new Answer();
+        answer.setSymbol(symbol);
+        answer.setChoice(Dialog.showDialog(text, opts, def));
+        insert(answer);
+        insert(new Finish());
+end
+
+rule "Can code"
+    when
+    	Answer(symbol==QuestionSymbols.PRODUCTIVEWORK, choice=="Yes")
+    then
+    	QuestionSymbols symbol=QuestionSymbols.CANCODE;
+    	String text="Can you code?";
+    	List<String> opts=List.of("Yes", "Well... it's been a while", "No");
     	int def=0;
         Question money=new Question();
         money.setSymbol(symbol);
