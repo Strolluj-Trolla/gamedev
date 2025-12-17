@@ -1093,7 +1093,7 @@ rule "Motion capture actor"
 		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
 		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
 		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="Yes")
-		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="No")
 		Answer(symbol==QuestionSymbols.YOUNGCAUCASIANHOT, choice=="No")
 	then
 		Dialog.showResults("Motion Capture Actor");
@@ -1109,7 +1109,7 @@ rule "Military shooter packaging model"
 		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
 		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
 		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="Yes")
-		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="No")
 		Answer(symbol==QuestionSymbols.YOUNGCAUCASIANHOT, choice=="Yes")
 		Answer(symbol==QuestionSymbols.MALE, choice=="Yes")
 	then
@@ -1126,7 +1126,7 @@ rule "Booth babe"
 		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
 		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
 		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="Yes")
-		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="No")
 		Answer(symbol==QuestionSymbols.YOUNGCAUCASIANHOT, choice=="Yes")
 		Answer(symbol==QuestionSymbols.MALE, choice=="No")
 		Answer(symbol==QuestionSymbols.ARTSANDCRAFTS, choice=="No")
@@ -1144,7 +1144,7 @@ rule "Cosplayer"
 		Answer(symbol==QuestionSymbols.UNDERAPPRECIATED, choice=="No")
 		Answer(symbol==QuestionSymbols.ALONE, choice=="No")
 		Answer(symbol==QuestionSymbols.RATHERMOVIES, choice=="Yes")
-		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="Yes")
+		Answer(symbol==QuestionSymbols.CELEBRITY, choice=="No")
 		Answer(symbol==QuestionSymbols.YOUNGCAUCASIANHOT, choice=="Yes")
 		Answer(symbol==QuestionSymbols.MALE, choice=="No")
 		Answer(symbol==QuestionSymbols.ARTSANDCRAFTS, choice=="Yes")

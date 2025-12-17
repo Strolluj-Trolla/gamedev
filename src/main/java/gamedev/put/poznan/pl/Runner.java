@@ -20,5 +20,7 @@ public class Runner{
         } catch (Throwable t) {
             t.printStackTrace();
         }
+    	Dialog.destroy();
+    	return;
     }
 }

@@ -21,6 +21,12 @@ public class Dialog extends JDialog{
     	return dialog;
     }
     
+    public static void destroy() {
+    	if(dialog==null)return;
+    	dialog.dispose();
+    	return;
+    }
+    
     public static String showDialog(String question, List<String> options, int defaultOpt) {
     	Dialog dialog=getDialog();
     	dialog.updateGuiWithQuestion(question, options, defaultOpt);
@@ -31,9 +37,7 @@ public class Dialog extends JDialog{
     public static void showResults(String results) {
     	Dialog dialog=getDialog();
     	dialog.showResult(results);
-    	dialog.setModal(false);
     	dialog.setVisible(true);
-    	dialog.setModal(true);
     }
     
     private Dialog() {
